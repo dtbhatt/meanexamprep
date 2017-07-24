@@ -1,0 +1,8 @@
+<h1>Login Component</h1>
+<form (submit)="register()">
+    <label>USERNAME</label>
+    <input type="text" [(ngModel)]="user.username" name="username">
+    <label>PASSWORD</label>
+    <input type="text" [(ngModel)]="user.password" name="password">
+    <input type="submit" value="register or login">
+</form>

@@ -9,18 +9,22 @@ import { LoginComponent } from './login/login.component';
 
 import {UserService} from './user.service';
 import { DashboardComponent } from './dashboard/dashboard.component'
+import {MessageService} from "./message.service";
+
+import { QuestionsComponent } from './questions/questions.component';
 
 const routes: Routes = [
   {path: "", pathMatch: "full", component: LoginComponent},
-  {path:"dashbaord/:id", component: DashboardComponent}
-  
+  {path:"dashbaord/:id", component: DashboardComponent},
+  {path:"question/:id", component: QuestionsComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService],
+  providers: [UserService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

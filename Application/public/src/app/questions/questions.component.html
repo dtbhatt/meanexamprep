@@ -1,0 +1,12 @@
+<a href="/">Home</a>
+<a href="/logout">Logout</a>
+
+<h1>New Question</h1>
+
+<form (submit)="createMessage()">
+    <label>Question </label>
+    <input type=" text " name="message " [(ngModel)]="message.message">
+    <label>Description (Optional)</label>
+    <input type="text" name="description" [(ngModel)]="message.description">
+    <input type="submit" value="Create New Message ">
+</form>

@@ -1,16 +1,32 @@
 var path = require('path')
 var users = require('../controllers/users.js');
 
+var Messages = require("../controllers/messages");
+
 module.exports = function(app) {
     app.post("/register", function(req, res) {
         console.log(req.body, "This is our register route");
         users.register(req, res)
     })
 
-    app.get("user/:id", function(req, res) {
+    app.get("/users/:id", function(req, res) {
         console.log(req.params.id, "this is users route")
         users.show(req, res);
     })
+
+    app.post("/messages", function(req, res) {
+        console.log(req.body, "This is the message create route");
+        Messages.create(req, res);
+    })
+
+    app.get("/messages", function(req, res) {
+        console.log("tHIS is messages find");
+        Messages.index(req, res);
+
+    })
+
+
+
     app.all("*", (req, res, next) => {
         res.sendfile(path.resolve("./public/dist/index.html"))
     })

@@ -29,19 +29,18 @@ function UserController() {
             }
         })
     }
-}
 
-this.show = function(req, res) {
-    User.findOne({ _id: req.params.id }),
-        function(req, res) {
-            if (err) {
-                res.static(500).json({ message: "Whoops" })
-            } else {
-                res.json({
-                    user: user
-                })
-            }
-        }
+
+    this.show = function(req, res) {
+        User.findOne({ _id: req.params.id },
+            function(err, user) {
+                if (err) {
+                    res.static(500).json({ message: "Whoops" })
+                } else {
+                    res.json({ user: user });
+                }
+            })
+    }
 }
 
 module.exports = new UserController();

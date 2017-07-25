@@ -14,13 +14,14 @@ export class UserService {
     var bubbles = this._http.post("/register", user).map(data => data.json()).toPromise(); 
     bubbles.then((data) => {
       this.currentUser = data.user;
+      console.log(this.currentUser, "This is the current user Service page");
     })
     return bubbles;
   }
 
   find(userId){
     console.log("This is within userService", userId)
-    return this._http.get(`/users/${userId}`).map(data=> data.json()).toPromise();
+    return this._http.get(`/users/${userId}`).map(data => data.json()).toPromise();
   }
 
 

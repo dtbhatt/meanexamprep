@@ -6,11 +6,11 @@ import {MessageService} from "../message.service"
 import {Message} from "../message"
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-questions',
+  templateUrl: './questions.component.html',
+  styleUrls: ['./questions.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class QuestionsComponent implements OnInit {
   messages: Message[] = [];
   user: User;
   message: Message = new Message();
@@ -24,7 +24,6 @@ export class DashboardComponent implements OnInit {
    })
   }
 
-  
 
   ngOnInit() {
     if(this.user) {

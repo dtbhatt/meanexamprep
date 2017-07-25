@@ -1,2 +1,31 @@
 <h1> Dashboard </h1>
+
 <h2 *ngIf="user"> Hello, {{user.username}}</h2>
+<p><a href="/newQuestion">Add a question</a></p>
+<p><a href="/">LogOut</a></p>
+
+<form (submit)="createMessage()">
+    <label>Question </label>
+    <input type=" text " name="message " [(ngModel)]="message.message">
+    <label>Description (Optional)</label>
+    <input type="text" name="description" [(ngModel)]="message.description">
+    <input type="submit" value="Create New Message ">
+</form>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>Questions</th>
+            <th>Answers</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let message of messages">
+            <td>{{message.message}}</td>
+            <td>1</td>
+            <td>
+                <a href="/show">Show</a>||
+                <a href="/answer">Answer</a>
+            </td>
+        </tr>
+    </table>
+</div>
